@@ -1,72 +1,61 @@
-const userText = document.querySelector("#userText");
-const originalText = document.querySelector("#originalText").innerHTML;
-const resetButton = document.querySelector("#reset");
-const theTimer = document.querySelector(".timer");
+<!--This Page is created by Gaurav Raina-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<html>
 
-var interval;         //to make interval accessible in other functions
-var timer=[0,0];      // to store values of timer
-
-
-// Run a standard minute/second/hundredths timer:
-function startTimer()
-{
-timer[1]++;
-var clock=timer[0]+":"+timer[1];
-
-theTimer.innerHTML=clock;
-
-    if(timer[1] == 60){
-        timer[0]++;
-        timer[1]=0;
-        }
-}
+<head>
+    <title>Typing Speed Test Application</title>
+    <script src="script.js" async></script>
+</head>
 
 
-// Match the text entered with the provided text on the page:
-function CheckText()
-{
-let textEntered = userText.value;
-let originTextMatch = originalText.substring(0,textEntered.length);
+<body>
 
+    <section class="container jumbotron bg-dark text-light text-center">
+           <h1>Test Your Typing Speed</h1>       
+    </section>
 
-    if (textEntered == originalText)
-     {
-        document.querySelector("body").classList.add("bg-primary");
-        document.querySelector("body").classList.remove("bg-danger", "bg-success");  
-            
-        //this stops the timer when Text is complete. 
-        clearInterval(interval);
-     }
-      else {
-        if (textEntered == originTextMatch) {
-        document.querySelector("body").classList.add("bg-success");
-        document.querySelector("body").classList.remove("bg-danger");  
-        } 
-     
-     else {
-        document.querySelector("body").classList.add("bg-danger");
-        document.querySelector("body").classList.remove("bg-success");     
-        }
-}
-}
+    <section class="container alert alert-info alert-dismissible fade show">                 
+        <button class="close" data-dismiss="alert" >&times;</button>
+        <h3 class="alert-heading">How does this Work?</h3>           
+        <p>This is a typing test. Duplicate the provided text in the field on left side. The timer starts when you start typing, and only stops when you match the text exactly. Lets Do This!!</p>
+        
+    </section>
+          
+    <main class="container">
+        <div class="row">
+        
+            <!--Original Text-->
+            <div class="col-6 jumbotron">
+                <div id="originalText">Hi, I have created this web-page using JavaScript. In case of error, page color goes red. It changes to blue when you are done.</div>
+            </div>
 
-// Start the timer:
-function start(){
-    let textEnteredLength=userText.value.length;
-        if(textEnteredLength==0)    {
-interval=setInterval(startTimer,1000);
-        }
-}
+            <!--Text Entered By User-->
+            <div class="col-6 ">
+                <textarea class="form-control" id="userText" rows="6" placeholder="The clock starts when you start typing."></textarea>
+            </div>
+        </div>
+    </main>
+    
 
-// Reset everything. Location.reload method refreshes the page.
-function ResetEverything()
-{
-location.reload();
-}
+<footer class="container">
+    <div class="row ">
 
-// Event listeners for keyboard input and the reset button:
-userText.addEventListener("keypress",start,false);
-userText.addEventListener("keyup",CheckText,false);
-resetButton.addEventListener("click",ResetEverything,false);
+        <!--The Div is for the clock-->
+        <div class="col-6">
+           <h1 id="clock" class="timer text-center">0:0</h1>
+        </div>     
 
-//This Page is created by Gaurav Raina
+        <!--The Div is for the button-->
+        <div class="col-6">
+            <button id="reset" class="btn btn-lg" >Start over</button>
+        </div>
+    </div>
+    </section>
+           
+<!--This Page is created by Gaurav Raina-->
+</footer>   
+</body>
+</html>
