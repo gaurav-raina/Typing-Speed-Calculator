@@ -3,6 +3,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1"> <!--To help application fix the window size issue-->
+
 <html>
 
 <head>
@@ -28,20 +30,20 @@
         <div class="row">
         
             <!--Original Text-->
-            <div class="col-6 jumbotron">
+            <div class="col-md-6 jumbotron">
                 <div id="originalText">Hi, I have created this web-page using JavaScript. In case of error, page color goes red. It changes to blue when you are done.</div>
             </div>
 
             <!--Text Entered By User-->
-            <div class="col-6 ">
+            <div class="col-md-6 ">
                 <textarea class="form-control" id="userText" rows="6" placeholder="The clock starts when you start typing."></textarea>
             </div>
         </div>
     </main>
     
 
-<footer class="container">
-    <div class="row ">
+<footer class="container mt-3">
+    <div class="row">
 
         <!--The Div is for the clock-->
         <div class="col-6">
