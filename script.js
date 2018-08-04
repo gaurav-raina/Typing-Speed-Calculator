@@ -67,7 +67,7 @@ location.reload();
 
 // Event listeners for keyboard input and the reset button:
 userText.addEventListener("keypress",start,false);
-userText.addEventListener("keyup",CheckText,false);
+userText.addEventListener("input",CheckText,false);
 resetButton.addEventListener("click",ResetEverything,false);
 
 //This Page is created by Gaurav Raina
