@@ -5,7 +5,7 @@ const theTimer = document.querySelector(".timer");
 
 var interval;         //to make interval accessible in other functions
 var timer=[0,0];      // to store values of timer
-
+var checkIfTimerwasrunning=false; //*check at bottom
 
 // Run a standard minute/second/hundredths timer:
 function startTimer()
@@ -53,7 +53,8 @@ let originTextMatch = originalText.substring(0,textEntered.length);
 // Start the timer:
 function start(){
     let textEnteredLength=userText.value.length;
-        if(textEnteredLength==0)    {
+        if(textEnteredLength==0 && !checkIfTimerwasrunning){
+            checkIfTimerwasrunning=true;
 interval=setInterval(startTimer,1000);
         }
 }
@@ -70,3 +71,6 @@ userText.addEventListener("keyup",CheckText,false);
 resetButton.addEventListener("click",ResetEverything,false);
 
 //This Page is created by Gaurav Raina
+
+//*When we erase all text after entering something setInterval is called twice this setting multiple intervals.
+// We use checkTimerrunning to avoid multiple intervals.
